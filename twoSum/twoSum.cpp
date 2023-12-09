@@ -5,19 +5,23 @@ class Solution {
 public:
     std::vector<int> twoSum(std::vector<int>& nums, int target) {
         // Get length of nums
+        std::cout<<"nums.size() = "<<nums.size()<<std::endl;
         size_t len = nums.size();
         // Prepare a vector for storing the solution
         std::vector<int> ret(2);
         // Prepare a counter
         size_t cnt = 0;
-
-        for(size_t i = cnt+1; i < len; i++){
-            if ((nums[cnt] + nums[i]) == target){
-                ret[0] = cnt;
-                ret[1] = i;
-                break;
+        while (cnt < len){
+            for(size_t i = cnt+1; i < len; i++){
+                if ((nums[cnt] + nums[i]) == target){
+                    ret[0] = cnt;
+                    ret[1] = i;
+                    break;
+                }
             }
+            cnt++;
         }
+        
         return ret;
     }
 };
